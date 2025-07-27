@@ -1,84 +1,51 @@
-# Sistema de Estoque para a Sede
+# Case de Estudo: Sistema de Gestão de Estoque (DevStock)
+![Status](https://img.shields.io/badge/status-finalizado-brightgreen) ![Tecnologia](https://img.shields.io/badge/tecnologia-Django-darkgreen)
 
-## Descrição
+---
 
-O **Sistema de Estoque para a Sede** foi desenvolvido para gerenciar e monitorar o estoque de diferentes categorias de produtos. O sistema permite acompanhar a quantidade de itens, especificações e garantir a reposição automática de produtos essenciais ao atingir a quantidade mínima definida.
+### Nota sobre o Código-Fonte e Confidencialidade
+Este repositório serve como um "case de estudo" para um sistema que desenvolvi profissionalmente. Com a devida autorização da empresa, o código-fonte original foi alterado para remover toda e qualquer informação sensível ou de propriedade intelectual.
 
-### Funcionalidades:
+A versão aqui presente utiliza uma identidade visual modificada e um banco de dados com informações fictícias, com o único propósito de demonstrar minhas habilidades técnicas para fins de portfólio.
 
-- **Controle de Estoque por Categorias**: O sistema é dividido em três abas principais:
-  - **Estoque de Endomarketing**
-  - **Estoque de Produtos de Limpeza**
-  - **Estoque de Ações**
+### O Problema de Negócio
+A empresa realizava o controle de múltiplos estoques através de planilhas, o que gerava desafios como:
+* **Falta de Visibilidade em Tempo Real:** Dificuldade para as diferentes sedes da empresa terem uma visão centralizada e atualizada dos suprimentos.
+* **Erros de Contagem:** A entrada manual de dados resultava em inconsistências no planejamento de compras.
+* **Controle de Nível Mínimo:** Ausência de um sistema proativo para alertar sobre a necessidade de reposição de itens.
 
-Cada aba apresenta as seguintes colunas para controle:
+### A Solução: DevStock
+Para resolver estes problemas, desenvolvi um sistema de gestão de estoque centralizado utilizando Python e Django. A solução foi projetada para ser uma ferramenta interna robusta e intuitiva para o time de Recursos Humanos.
 
-| Coluna                | Descrição                                                        |
-| --------------------- | ---------------------------------------------------------------- |
-| **Nome do Produto**   | Nome específico do item no estoque.                              |
-| **Quantidade Atual**  | Número de unidades em estoque.                                   |
-| **Especificação**     | Detalhes sobre o produto (tamanho, cor, embalagem, marca, etc.)  |
-| **Quantidade Mínima** | Quantidade mínima do produto no estoque que ativa a notificação. |
+### Funcionalidades Principais
+* **Gestão de Múltiplos Estoques:** O sistema permite a criação e gerenciamento de diferentes categorias de estoque (ex: "Estoque de Escritório", "Suprimentos Gerais").
+* **Controle de Acesso por Usuário:** Utilizando o sistema de autenticação e autorização do Django para que apenas usuários autorizados pudessem modificar o estoque.
+* **Filtros Avançados:** A interface permite filtrar os itens por localização (sede de São Paulo, Fortaleza, etc.), facilitando a logística entre as filiais.
+* **Sistema de Alerta Automático:** Implementação de um script em Python que monitora o banco de dados e, ao identificar que um item atingiu sua "Quantidade Mínima", dispara automaticamente um e-mail de alerta para o responsável, utilizando a biblioteca `smtplib`.
 
-### Funcionalidade de Notificação
+### Arquitetura e Tecnologias
+O projeto foi construído sobre o framework Django, com um foco especial na modelagem de dados e na customização do painel de administração.
+* **Models Complexos:** Foram criados modelos com diferentes tipos de relacionamentos para representar a estrutura de estoques, produtos e localizações.
+* **Django Admin:** O painel de administração do Django foi extensivamente utilizado e customizado para servir como a interface principal do sistema.
 
-O sistema envia notificações automáticas sempre que a quantidade de um item atinge ou fica abaixo da quantidade mínima estabelecida.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
-#### Exemplo de Notificação:
+### Demonstração
 
-- Se a quantidade mínima de "cards de boas-vindas" for 10 unidades, o sistema enviará uma notificação assim que a quantidade atingir ou ficar abaixo desse valor.
+**Fluxo de Edição de Estoque (GIF)**
 
-**Notificações incluem:**
+![Demo do Projeto Desktop](./demo-devstock-desktop.gif)
 
-- **Alerta no sistema interno**: O sistema gerará um alerta visual dentro do painel para indicar que o produto precisa ser reposto.
-- **E-mail de Aviso**: Um e-mail será enviado automaticamente para o responsável pela reposição do item, contendo as seguintes informações:
-  - Nome do produto
-  - Especificações do produto
-  - Quantidade atual no estoque
 
-#### Destinatário do E-mail:
 
-- **albuquerque@teclat.com.br**
+**Telas do Sistema (Prints)**
 
-### Objetivo do Sistema
+*Tela da lista de produtos, com filtros e status de estoque:*
 
-O objetivo deste sistema é otimizar o gerenciamento de estoque, evitando a falta de itens essenciais. Ele fornece uma maneira eficiente de monitorar a quantidade de produtos em estoque, emitindo alertas para garantir que os responsáveis possam realizar a reposição de forma ágil e eficaz. O sistema melhora a comunicação entre os setores e contribui para uma gestão mais precisa e eficiente dos recursos.
+![Tela da lista de produtos](./print-devstock-1.jpg)
 
-## Como Rodar o Projeto
 
-### Pré-requisitos
+*Tela de edição de um produto específico:*
 
-- Python 3.x
-- Django
-- Biblioteca de envio de e-mail (ex: smtplib)
-- Banco de dados configurado (ex: PostgreSQL, MySQL, SQLite, etc.)
-
-### Instalação
-
-1. Clone o repositório para sua máquina local:
-
-   ```bash
-   git clone https://github.com/usuario/projeto.git
-   cd projeto
-   ```
-
-2. Instale as dependências:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Configure o banco de dados e as variáveis de ambiente (`.env`):
-
-   - Ajuste as configurações do SMTP no arquivo `.env` para que o envio de e-mails funcione corretamente.
-
-4. Execute as migrações do banco de dados:
-
-   ```bash
-   python manage.py migrate
-   ```
-
-5. Inicie o servidor de desenvolvimento:
-   ```bash
-   python manage.py runserver
-   ```
+![Tela de edição de um produto](./print-devstock-2.jpg)
