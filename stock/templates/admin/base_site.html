@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+
+{% load static %}  
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'stock/css/admin_custom.css' %}">
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            <img src="{% static 'stock/images/logo_tecla_stock.png' %}" alt="Logo da Empresa" height="40px">
+        </a>
+    </h1>
+{% endblock %}
