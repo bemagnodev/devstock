@@ -65,8 +65,8 @@ class BaseStockItem(models.Model):
 
 class EndomarketingStock(BaseStockItem):
     class Meta:
-        verbose_name = "Estoque de Endomarketing"
-        verbose_name_plural = "Estoque de Endomarketing"
+        verbose_name = "Estoque de Escritório"
+        verbose_name_plural = "Estoque de Escritório"
 
 
 class GeneralSuppliesStock(BaseStockItem):

@@ -4,9 +4,10 @@ from django.contrib import messages
 from django.utils.html import format_html
 
 # Personalização do cabeçalho e título
-admin.site.site_header = "Painel de Controle de Estoque Tecla T"
-admin.site.site_title = "Tecla Chest"
-admin.site.index_title = "Bem-vindo ao Tecla Chest!"
+admin.site.site_header = "Painel de Controle de Estoque"
+admin.site.site_title = "DevStock"
+admin.site.index_title = "Bem-vindo ao DevStock!"
+
 
 # Filtro de Localização 
 class LocationFilter(admin.SimpleListFilter):
@@ -74,6 +75,6 @@ class EndomarketingStockAdmin(BaseStockAdmin):
 class CleaningProductsStockAdmin(BaseStockAdmin):
     pass
 
-@admin.register(ActionsStock)
-class ActionsStockAdmin(BaseStockAdmin):
-    pass
+# @admin.register(ActionsStock)
+# class ActionsStockAdmin(BaseStockAdmin):
+#     pass

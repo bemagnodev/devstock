@@ -1,22 +1,21 @@
 /* Customização do logo */
 .branding img {
-    content: url('../images/Logo.png'); 
-    height: 40px;
-    margin: 0 auto;
+  content: url('../images/Logo.png');
+  height: 40px;
+  margin: 0 auto;
 }
 
 .module h2 {
-    background-color: #02e47e;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
+  background-color: #00599c;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.module caption{
-    background-color: #02e47e;
+.module caption {
+  background-color: #00599c;
 }
 
-#header{
-    background-color: #02e47e;
-    
+#header {
+  background-color: #00599c;
 }
